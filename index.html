@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home - Dashboard</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+
+    <body>
+
+        <!-- Contenedor principal -->
+
+        <div class="container-fluid">
+
+            <div class="row bg-primary">
+
+                <div class="col-auto nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="border-0 px-2 text-white" id="go-back" type="button">
+                        <i class="fas fa-arrow-left fa-lg"></i>
+                    </button>
+                    <button class="fw-bold nav-link text-white active" id="nav-movimientos-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-movimientos" type="button" role="tab" aria-controls="nav-movimientos"
+                        aria-selected="true">Movimientos</button>
+                    <button class="fw-bold nav-link text-white" id="nav-consultas-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-consultas" type="button" role="tab" aria-controls="nav-consultas"
+                        aria-selected="false">Consultas</button>
+                </div>
+
+                <div class="col nav nav-tabs align-items-center d-flex justify-content-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="bg-transparent breadcrumb m-0 p-0 text-white">
+                            <li class="breadcrumb-item" id="bc_bodega"></li>
+                            <li class="breadcrumb-item d-none" id="bc_mov"></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show h-100 active" id="nav-movimientos" role="tabpanel" aria-labelledby="nav-movimientos-tab">
+                    <div class="row flex-nowrap h-100">
+                        <div class="col-auto h-100 px-0">
+                            <div id="sidebar" class="collapse collapse-horizontal show border-end h-100">
+
+                                <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start h-100 bg-primary">
+
+                                    <div class="px-2 py-1">
+                                        <input type="date" class="form-control form-control-sm text-center disabled" name="fecha_movimiento" id="fecha_movimiento" readonly>
+                                    </div>
+
+                                    <div class="px-2 py-1">
+                                        <input type="text" class="form-control form-control-sm text-center disabled" name="trl_movimiento" id="trl_movimiento" placeholder="Ticekt movimiento">
+                                    </div>
+
+                                    <div class="list-group-item bg-transparent dropend">
+                                        <a class="d-flex justify-content-between text-white border-end-0 text-truncate dropdown-toggle w-100" data-bs-toggle="dropdown" data-parent="#sidebar" aria-expanded="false">
+                                            <div>
+                                                <i class="fas fa-warehouse"></i></i> <span>Bodega</span>
+                                            </div>
+                                        </a>
+                                        <ul class="dropdown-menu" id="menu_bodega">
+                                            <li><a class="dropdown-item" href="#">Red Externa</a></li>
+                                            <li><a class="dropdown-item" href="#">Operación HFC</a></li>
+                                            <li><a class="dropdown-item" href="#">Fibra Óptica</a></li>
+                                            <li><a class="dropdown-item" href="#">Nokia</a></li>
+                                            <li><a class="dropdown-item" href="#">Acometidas</a></li>
+                                            <li><a class="dropdown-item" href="#">Segmentación</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="list-group-item bg-transparent dropend pe-none">
+                                        <a class="d-flex justify-content-between text-white border-end-0 text-truncate dropdown-toggle w-100" data-bs-toggle="dropdown" data-parent="#sidebar" aria-expanded="false">
+                                            <div>
+                                                <i class="fas fa-dolly"></i> <span>Movimiento</span>
+                                            </div>
+                                        </a>
+                                        <ul class="dropdown-menu" id="menu_mov">
+                                            <li><a class="dropdown-item" href="#">Devolución</a></li>
+                                            <li><a class="dropdown-item" href="#">Entrada</a></li>
+                                            <li><a class="dropdown-item" href="#">Entrega</a></li>
+                                            <li><a class="dropdown-item" href="#">Traslado</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="bg-transparent border-end-0 d-inline-block text-truncate px-2 py-1" style="border-bottom: 1px solid rgba(0,0,0,.125) !important;">
+                                        <label for="tecnico_movimiento" class="m-0 ps-2 text-white">
+                                            <i class="fas fa-user-alt"></i><span> Técnico</span>
+                                        </label>
+                                        <input type="search" class="form-control form-control-sm" name="tecnico_movimiento" id="tecnico_movimiento">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <main class="col h-100 position-relative px-4 pt-2">
+                            <i class="fas fa-chevron-left rounded-end ml-sm-n1 bg-primary text-white position-absolute start-0 px-1 py-2" id="icon_sidebar" onclick="toggleSideMenu(this);" data-bs-target="#sidebar" data-bs-toggle="collapse"></i>
+                            <!-- INICIO CARGAR MATERIAL -->
+
+                            <div id="div_carga_mat" class="p-2 px-lg-4 row">
+
+                                <div class="col-12 border border-lg rounded-lg">
+                                    <form class="rounded-lg my-1 w-100" name="materiales_form" id="materiales_form">
+
+                                        <div class="form-row justify-content-start">
+
+                                            <div class="form-group col-6 col-sm-4 col-md-3 col-lg-2 mb-3 mb-lg-1 codigo_mod" id="div_codigo">
+                                                <label for="select_codigo" class="text-secondary mb-0">Código:</label>
+                                                <select
+                                                    class="form-control form-control-sm form-select form-select-sm full-data"
+                                                    name="select_codigo" id="select_codigo">
+                                                    <option value="-1" disabled selected>Seleccionar...</option>
+                                                    <option value="001">001</option>
+                                                    <option value="002">002</option>
+                                                </select>
+                                                <div id="select_codigo-msg" class="d-block error-msg invalid-feedback lh-1 m-0 position-absolute text-center text-danger"></div>
+                                            </div>
+
+                                            <div class="form-group col-12 col-sm-8 col-md-4 col-xl-5 mb-3 mb-lg-1 descripcion_mod" id="div_descripcion">
+                                                <label for="select_descripcion"
+                                                    class="text-secondary mb-0">Descripción:</label>
+                                                <select
+                                                    class="form-control form-control-sm form-select form-select-sm full-data"
+                                                    name="select_descripcion" id="select_descripcion">
+                                                    <option value="-1" disabled selected>Seleccionar...</option>
+                                                    <option value="Descripción 1">Descripción 1</option>
+                                                    <option value="Descripción 2">Descripción 2</option>
+                                                </select>
+
+                                                <div id="select_descripcion-msg" class="d-block error-msg invalid-feedback lh-1 m-0 position-absolute text-center text-danger"></div>
+                                            </div>
+
+                                            <div class="form-group col-6 col-sm-4 col-md-2 mb-3 mb-lg-1" id="div_lote">
+                                                <label class="text-black-50 mb-0" for="select_lote">Lote</label>
+                                                <input type="text" id="select_lote" name="select_lote" placeholder="Lote" class="form-control form-control-sm text-center full-data" oninput="this.value = this.value.toUpperCase();">
+                                                <div id="select_lote-msg" class="d-block error-msg invalid-feedback lh-1 m-0 position-absolute text-center text-danger"></div>
+                                            </div>
+
+                                            <div class="form-group col-6 col-sm-5 col-md-3 col-lg-2 mb-3 mb-lg-1 position-relative" id="div_cantidad">
+                                                <small class="position-absolute text-center text-danger d-none w-100" id="error_cantidad" style="bottom: -2px; left: -9%; font-size: x-small; z-index: 10;">Sólo números</small>
+                                                <label class="text-black-50 mb-0" for="cantidad">Cantidad</label>
+                                                <div class="input-group w-100">
+                                                    <input type="text" id="cantidad" placeholder="Cantidad" class="form-control form-control-sm text-center full-data" oninput="onlyNumber(this);">
+                                                    <span class="input-group-text px-1 py-0 text-black-50" id="medida"  style="font-size: small;">unds</span>
+                                                </div>
+
+                                                <div id="cantidad-msg" class="d-block error-msg invalid-feedback lh-1 m-0 position-absolute text-center text-danger"></div>
+                                            </div>
+
+                                            <div
+                                                class="col-12 col-sm-3 col-md-12 col-lg-2 col-xl-1 d-flex align-items-end justify-content-center form-group mb-3 mb-md-1">
+                                                <div>
+                                                    <input type="button" class="btn-primary form-control form-control-sm" id="agregar_item" value="Agregar">
+                                                </div>
+                                            </div>
+
+                                            <small class="col-12 text-center text-gray-500 m-0">Completa los campos y presiona ENTER ó click en "Agregar" para registrar un item</small>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <table class="table table-bordered table-sm text-center" id="materiales">
+                                        <thead class="bg-primary text-white">
+                                            <tr>
+                                                <th>CÓDIGO</th>
+                                                <th>DESCRIPCIÓN</th>
+                                                <th>LOTE</th>
+                                                <th>CANTIDAD</th>
+                                                <th>MEDIDA</th>
+                                                <th>ACCIÓN</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!--  FIN CARGAR MATERIAL -->
+
+                            <div class="row">
+                                <div class="col-12 d-flex align-items-end justify-content-center">
+                                    <div>
+                                        <input type="button" class="btn-primary form-control form-control-sm" id="finalizar" value="FINALIZAR">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </main>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade h-100" id="nav-consultas" role="tabpanel" aria-labelledby="nav-consultas-tab">
+                    <div class="row flex-nowrap h-100">
+                        <div class="col-auto h-100 px-0">
+                            <div id="sidebar" class="collapse collapse-horizontal show border-end h-100">
+                                <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start h-100 bg-primary">
+                                    <div class="p-2">
+                                        <input type="date" class="form-control form-control-sm" name="fecha_consulta" id="fecha_consulta">
+                                    </div>
+                                    <a href="#" class="list-group-item bg-transparent text-white border-end-0 d-inline-block text-truncate" data-parent="#sidebar">
+                                        <i class="fas fa-warehouse"></i></i> <span>Bodega</span>
+                                    </a>
+                                    <a href="#" class="list-group-item bg-transparent text-white border-end-0 d-inline-block text-truncate" data-parent="#sidebar">
+                                        <i class="fas fa-dolly"></i> <span>Movimiento</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <main class="col h-100 position-relative ps-md-2 pt-2">
+                            <i class="fas fa-chevron-left rounded-end ml-sm-n1 bg-primary text-white position-absolute start-0 ps-2 px-1 py-2" onclick="toggleSideMenu(this);" data-bs-target="#sidebar" data-bs-toggle="collapse"></i>
+
+                            <div class="page-header">
+                                <h2 class="text-center">DASHBOARD CONSULTAS</h2>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12"></div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> -->
+        <script src="./app.js"></script>
+    </body>
+
+</html>

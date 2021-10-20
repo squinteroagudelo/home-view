@@ -1,0 +1,70 @@
+a,
+i {
+    cursor: pointer;
+    text-decoration: none !important;
+}
+
+#wrapper {
+    height: inherit;
+}
+
+#go-back {
+    background: #0054cf !important;
+}
+
+#go-back:hover {
+    background: #FFFFFF !important;
+    color: #0d6cf8 !important;
+}
+
+#nav-tab .active {
+    color: #0054cf !important;
+}
+
+.tab-content{
+    height: 93.3vh;
+}
+
+#sidebar-nav {
+    width: 200px;
+}
+
+.dropend .dropdown-toggle::after {
+    align-self: center;
+}
+
+#resultado_tecnico_movimiento {
+    max-height: 60vh;
+    overflow: auto;
+    width: 91%;
+}
+
+#resultado_tecnico_movimiento table {
+    font-size: 10px;
+}
+
+#resultado_tecnico_movimiento td {
+    cursor: pointer;
+    padding: 6px;
+}
+
+#resultado_tecnico_movimiento td:hover {
+    background-color: #0d6efd;
+    border-radius: 8px;
+    color: #FFFFFF;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    font-family: 'Font Awesome 5 Free';
+    color: #FFFFFF !important;
+    content: '\f0da' !important;
+    font-weight: 700;
+}
+
+.error-msg {
+    font-size: .7rem;
+}
+
+.table {
+    font-size: .8rem;
+}
